@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build --base=/rick-and-morty/",
+        "build": "vite build --base=./",
         "preview": "vite preview"
     },
     "devDependencies": {
