@@ -1,51 +1,7 @@
-body {
-    font-family: 'Roboto';
-    font-size: 14px;
-    color: black;
-    background-color: white;
-}
-
-body {
-    margin: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin: 0;
-    padding: 0;
-}
-
-ol,
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-
-
-
 
 
 @media screen and (min-width: 480px) {
-    .container {
-        width: 480px;
-    }
+   
 
     .footer{
         background-color: #0D171D;
@@ -78,15 +34,10 @@ img {
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-        width: 768px;
-    }
+   
 }
 
 @media screen and (min-width: 1170px) {
-    .container {
-        width: 1170px;
-    }
+   
 }
-
 
