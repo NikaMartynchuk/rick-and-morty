@@ -4,6 +4,10 @@
     .footer {
         background-color: #0D171D;
 
+        &--image{
+            position: absolute;
+        }
+
         &--list {
 
               padding-top: 94px;
@@ -24,7 +28,7 @@
                 rotate: 32deg;
                 margin-left: 52px;
                 margin-bottom: 200px;
-                
+                top: 100px;
             }
 
             &__rikc {
@@ -38,6 +42,18 @@
 
                
                
+            }
+        }
+
+        &--lists{
+            &__link{
+                font-weight: 400;
+                font-family: Montserrat;
+                font-style: Regular;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 1%;
+                color: #FAFAFA;
             }
         }
 
