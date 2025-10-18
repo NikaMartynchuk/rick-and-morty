@@ -79,3 +79,65 @@
     width: 16px;
     height: 16px;
   }
+  /* Модалка — прямокутна і акуратна */
+.modal-content {
+  background-color: #071952;
+  color: white;
+  border-radius: 12px;
+  max-height: 450px;
+  overflow: hidden;
+}
+
+.modal-body {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Прибрати крапки у списку */
+#searchResults {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#searchResults .list-group-item {
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+}
+
+#searchResults .list-group-item:hover {
+  background: #a4d83f;
+  color: black;
+  cursor: pointer;
+}
+
+/* Стиль поля пошуку */
+.modal-body input {
+  background-color: #0f1b33;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.modal-body input::placeholder {
+  color: #bbb;
+}
+
+/* Скролбар */
+.modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-body::-webkit-scrollbar-track {
+  background: #0f1b33;
+  border-radius: 10px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background: #a4d83f;
+  border-radius: 10px;
+}
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background: #8bc22e;
+}
