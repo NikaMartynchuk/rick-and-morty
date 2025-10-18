@@ -1,26 +1,43 @@
-@media screen and (min-width: 255px) {
+@media screen and (min-width: 255px) and (max-width: 375px) {
 
-    .container{
-        display: flex;
-    }
-
-    .footer {
+   .footer {
         background-color: #0D171D;
 
-        &--image{
-            position: absolute;
+        // &--image{
+        //     position: absolute;
+        // }
+
+        .container{
+            display: flex;
         }
 
+        .footer--div{
+            margin-top: 41px;
+        }
+
+        .footer--ul{
+            display: flex;
+            margin-top: 20px;
+
+            &__image {
+                width: 40px;
+                height: 40px;
+                border-radius: 8px;
+                border-color: #FAFAFA;
+                border: 1px solid;
+                
+            }
+        }
         &--list {
 
-            padding-top: 0px;
-            padding-left: 0px;
-            padding-right: 0px;
-            padding-bottom: 0px;
-
+              padding-top: 94px;
+                padding-left: 21px;
+                padding-right: 70px;
+                padding-bottom: 116px;
+           
             &__morty {
                 background-color: #DAF836;
-                padding: 0;
+                padding: 12px 24px 12px 24px;
                 border-radius: 25px;
                 width: 97px;
                 height: 42px;
@@ -29,9 +46,9 @@
                 position: absolute;
 
                 rotate: 32deg;
-                margin-left: 0px;
-                margin-bottom: 0px;
-                top: 109px;
+                margin-left: 52px;
+                margin-bottom: 200px;
+                top: 120px;
             }
 
             &__rikc {
@@ -43,14 +60,13 @@
                 font-weight: 600;
                 font-family: Montserrat;
 
-
-
+               
+               
             }
         }
 
-        &--lists {
-            margin-top: 0px;
-            &__link {
+        &--lists{
+            &__link{
                 font-weight: 400;
                 font-family: Montserrat;
                 font-style: Regular;
@@ -61,44 +77,11 @@
             }
         }
 
-        &--ul {
-            display: flex;
-            margin-top: 0px;
-
-
-            &__image {
-                width: 40px;
-                height: 40px;
-                border-radius: 8px;
-                border-color: #FAFAFA;
-                border: 1px solid;
-                
-            }
-        }
-
-        &--text{
-            font-weight: 400;
-            font-family: Montserrat;
-            font-style: Regular;
-            font-size: 12px;
-            line-height: 14px;
-            color: #FAFAFA66;
-            margin-left: 0px;
-            padding-bottom: 0px;
-        }
-
     }
-
-
-
-
-
-
-
 
 }
 
-@media screen and (min-width: 678px) {
+@media screen and (min-width: 678px) and (max-width: 768px) {
 
     .container{
         display: flex;
@@ -204,7 +187,7 @@
 
 }
 
-@media screen and (min-width: 1340px) {
+@media screen and (min-width: 1340px)  {
      .container{
         display: flex;
     }
