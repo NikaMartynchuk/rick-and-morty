@@ -7,4 +7,4 @@ import"./vendor-6837a909.js";(function(){const n=document.createElement("link").
             <small>Location: ${r.location.name}</small>
           </div>
         </li>`).join(""):s.innerHTML='<li class="list-group-item text-center text-danger" style="background-color:#0B2447;">No results found</li>'}catch(n){console.error("Error fetching data:",n),s.innerHTML='<li class="list-group-item text-center text-danger" style="background-color:#0B2447;">Error loading</li>'}});
-//# sourceMappingURL=index-cbb0b701.js.map
+//# sourceMappingURL=index-f551645c.js.map
