@@ -8,8 +8,8 @@
     
     <title>Episode</title>
   <script type="module" crossorigin src="./assets/vendor-6837a909.js"></script>
-  <script type="module" crossorigin src="./assets/index-903c7a0f.js"></script>
-  <link rel="stylesheet" href="./assets/index-0734aaa8.css">
+  <script type="module" crossorigin src="./assets/index-4f77dbd9.js"></script>
+  <link rel="stylesheet" href="./assets/index-e6140e6e.css">
 </head>
 
 <body>
@@ -54,26 +54,24 @@
 </div>
  
     <main>
-          <p class="codee">Name</p>
-<div class="form">
-  <form class="search-form" id="search-form">
-    <input class="form-text" type="text" name="episodeName" placeholder="Enter name"/>
-  </form>
+          <div class="controls">
+  <label>Season:</label>
+  <select id="seasonSelect"></select>
 
-   <p class="codee">Episode code</p>
-  <div class="dropdown" id="dropdown">
-    <button class="dropdown-toggle" id="dropdownBtn">All season</button>
-    <ul class="dropdown-menu" id="menu">
-      <li class="active">All season</li>
-      <li data-season="1">1 season</li>
-      <li data-season="2">2 season</li>
-      <li data-season="3">3 season</li>
-      <li data-season="4">4 season</li>
-      <li data-season="5">5 season</li>
-      <li data-season="6">6 season</li>
-    </ul>
-  </div>
+  <label>Episode:</label>
+  <select id="episodeSelect"></select>
 </div>
+
+<div id="episodesContainer" class="episodes-grid"></div>
+
+<button id="loadMore" class="load-btn">Load more</button>
+
+<div id="episodeModal" class="modal">
+  <div class="modal-content" id="modalContent"></div>
+  <span id="modalClose" class="close">&times;</span>
+</div>
+
+
 
     </main>
     <footer class="footer">
@@ -107,7 +105,7 @@
 </footer>
 
 
-
+    <script src="episode.js"></script>
     
 </body>
 
