@@ -141,3 +141,56 @@
 .modal-body::-webkit-scrollbar-thumb:hover {
   background: #8bc22e;
 }
+
+/* --- Для планшетів --- */
+@media (max-width: 992px) {
+  .header1 {
+    padding: 10px 20px;
+  }
+
+  .header1-nav a {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .logo img {
+    height: 32px;
+  }
+
+  .search button {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+}
+
+/* --- Для мобільних --- */
+@media (max-width: 768px) {
+  .header1 {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  .header1-nav {
+    gap: 10px;
+  }
+
+  .header1-nav a {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
+  .search button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}
