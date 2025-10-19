@@ -1,7 +1,12 @@
 // Import all of Bootstrap's CSS
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./base/reset";
+
+
+
+@import "./components/characters.scss";
 @import "./main-episode.scss";
+ 
 @import "./utils/variables";
 @import "./utils/plaseholders";
 @import "./utils/mixins";
