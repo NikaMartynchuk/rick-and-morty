@@ -1,0 +1,164 @@
+.rm-hero {
+  background: #0b0f10;
+  border-radius: 0 0 100px 100px;;
+  overflow: hidden;
+  display: flex;
+  padding: 84px 0;
+  justify-content: center;
+  color: white;
+}
+
+.rm-hero__content {
+    z-index: 100;
+    margin-top: 113px;  
+    position: absolute ;
+  left: 100px;
+  max-width: 270px;
+}
+
+.rm-hero__text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #fff;
+      margin-left: 19px;
+
+}
+
+.rm-hero__center {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rm-hero__blur {
+
+  width: 526px;
+  height: 476px;
+  border-radius: 200000px;
+  background: radial-gradient(#14182c 42.46%, rgba(52, 56, 127, 0) 68%);  backdrop-filter: blur(94px);
+  opacity: 1;
+  z-index: 0;
+}
+
+
+.rm-hero__ship {
+  position: absolute;
+  width: 500px;
+  z-index: 2;
+}
+
+.rm-hero__logo {
+  position: absolute;
+  bottom: 3px;
+  width: 380px;
+  z-index: 3;
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .rm-hero {
+    flex-direction: column;
+    padding: 60px 0;
+  }
+
+  .rm-hero__content {
+    position: static;
+    text-align: center;
+    margin: 40px auto 0;
+    max-width: 340px;
+  }
+
+  .rm-hero__text {
+    font-size: 15px;
+    line-height: 20px;
+    margin-left: 0;
+  }
+
+  .rm-hero__blur {
+    width: 420px;
+    height: 380px;
+    backdrop-filter: blur(70px);
+  }
+
+  .rm-hero__ship {
+    width: 380px;
+  }
+
+  .rm-hero__logo {
+    width: 300px;
+    bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rm-hero {
+    border-radius: 0 0 60px 60px;
+    padding: 40px 0 80px;
+  }
+
+  .rm-hero__content {
+    order: 2;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .rm-hero__text {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .rm-hero__center {
+    order: 1;
+    margin-top: 20px;
+  }
+
+  .rm-hero__blur {
+    width: 340px;
+    height: 300px;
+    backdrop-filter: blur(60px);
+  }
+
+  .rm-hero__ship {
+    width: 300px;
+  }
+
+  .rm-hero__logo {
+    width: 240px;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rm-hero {
+    border-radius: 0 0 40px 40px;
+    padding: 30px 0 60px;
+  }
+
+  .rm-hero__blur {
+    width: 260px;
+    height: 220px;
+    backdrop-filter: blur(50px);
+  }
+
+  .rm-hero__ship {
+    width: 230px;
+  }
+
+  .rm-hero__logo {
+    width: 180px;
+    bottom: 8px;
+  }
+
+  .rm-hero__text {
+    font-size: 13px;
+    line-height: 17px;
+    padding: 0 16px;
+  }
+}
