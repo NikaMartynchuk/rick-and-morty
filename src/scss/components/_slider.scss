@@ -70,8 +70,80 @@
 
 .rm-viewport:hover .rm-track { animation-play-state: paused; }
 
-@media (max-width:720px) {
-  .rm-slide { flex:0 0 calc((100% - 24px)/3); height:140px; }
-  .rm-track { gap:8px; animation-duration:12s; }
-  .rm-title { font-size:28px; line-height:32px; }
+/* ===== 📱 АДАПТИВ ===== */
+@media (max-width: 1024px) {
+  .rm-section {
+    border-radius: 60px;
+    padding: 28px;
+  }
+
+  .rm-title {
+    width: 100%;
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .rm-slide {
+    flex: 0 0 calc((100% - 24px) / 4);
+    height: 250px;
+  }
+
+  .rm-track {
+    gap: 16px;
+    animation-duration: 14s;
+  }
+}
+
+@media (max-width: 720px) {
+  .rm-section {
+    border-radius: 40px;
+    padding: 22px;
+  }
+
+  .rm-title {
+    font-size: 21px;
+    line-height: 34px;
+  }
+
+  .rm-slide {
+    flex: 0 0 calc((100% - 16px) / 3);
+    height: 160px;
+  }
+
+  .rm-track {
+    gap: 8px;
+    animation-duration: 12s;
+  }
+
+  .rm-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rm-section {
+    border-radius: 24px;
+    padding: 18px;
+  }
+
+  .rm-title {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .rm-slide {
+    flex: 0 0 calc((100% - 12px) / 2);
+    height: 130px;
+  }
+
+  .rm-track {
+    gap: 6px;
+    animation-duration: 10s;
+  }
+
+  .rm-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
 }
