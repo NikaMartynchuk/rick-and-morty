@@ -5,8 +5,8 @@
 
         &--image{
             position: absolute;
-            top: 100px;
-            left: 30px;
+            top: 1240px;
+            left: 35px;
         }
         .container {
             display: flex;
@@ -46,12 +46,11 @@
                 height: 42px;
                 font-weight: 600;
                 font-family: Montserrat;
-                position: absolute;
+               
 
                 rotate: 32deg;
                 margin-left: 52px;
-                margin-bottom: 200px;
-                top: 120px;
+                
             }
 
             &__rikc {
@@ -96,9 +95,11 @@
     .footer {
         background-color: #0D171D;
 
-        // &--image{
-        //     position: absolute;
-        // }
+        &--image{
+            position: absolute;
+            top: 1350px;
+            left: 135px;
+        }
 
         &--div {
             display: flex;
@@ -120,8 +121,6 @@
                 height: 42px;
                 font-weight: 600;
                 font-family: Montserrat;
-                position: absolute;
-                top: 130px;
                 margin-left: 60px;
                 rotate: 32deg;
 
@@ -201,11 +200,16 @@
     }
 
     .footer {
+         &--image{
+          position: absolute;
+            top: 1435px;
+            left: 120px;
+        }
         background-color: #0D171D;
 
-        // &--image{
-        //     position: absolute;
-        // }
+        &--image{
+            position: absolute;
+        }
 
         &--div {
             display: flex;
@@ -227,8 +231,8 @@
                 height: 42px;
                 font-weight: 600;
                 font-family: Montserrat;
-                position: absolute;
-                top: 170px;
+                position: relative;
+                
                 margin-left: 60px;
                 rotate: 32deg;
 
@@ -243,7 +247,7 @@
                 height: 46px;
                 font-weight: 600;
                 font-family: Montserrat;
-
+                
 
 
             }
