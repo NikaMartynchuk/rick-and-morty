@@ -1,7 +1,9 @@
-const characterList = document.getElementById('character__list');
-const loadMoreBtn = document.querySelector('.character__load-more');
+const characterList = document.getElementById('character-list');
+const loadMoreBtn = document.querySelector('.load-more');
 
-if (!characterList || !loadMoreBtn) return;
+if (!characterList || !loadMoreBtn) {
+  console.error('Не знайдено необхідні елементи для роботи скрипта');
+}
 
 let currentPage = 1;   
 let isLoading = false; 
@@ -25,7 +27,6 @@ function loadCharacters(page) {
         </li>
       `).join('');
 
-      
       if (!data.info.next) {
         loadMoreBtn.style.display = 'none';
       }
@@ -39,24 +40,21 @@ function loadCharacters(page) {
     });
 }
 
-
 loadCharacters(currentPage);
-
 
 loadMoreBtn.addEventListener('click', () => {
   if (isLoading) return; 
   currentPage++;
   loadCharacters(currentPage);
 });
+
 document.addEventListener('DOMContentLoaded', () => {
-  const nameInput = document.querySelector('.character__input');
-  const selects = document.querySelectorAll('.character__filter-container select');
-  const list = document.querySelector('.character__list');
-  const searchButton = document.querySelector('.character__search-button');
+  const nameInput = document.querySelector('.character-input');
+  const selects = document.querySelectorAll('.character select');
+  const list = document.querySelector('.character-list');
+  const searchButton = document.querySelector('.load-more'); // тимчасово як кнопка пошуку
 
-  
   const initialListHTML = list.innerHTML;
-
 
   function normalizeValue(key, val) {
     if (!val) return '';
@@ -65,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return val;
   }
 
-  
   function filtersAreEmpty() {
     if (nameInput.value.trim() !== '') return false;
     for (const select of selects) {
@@ -74,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
-  
   function buildApiUrl() {
     const baseUrl = 'https://rickandmortyapi.com/api/character/';
     const params = new URLSearchParams();
@@ -90,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return baseUrl + (params.toString() ? `?${params.toString()}` : '');
   }
-
 
   async function updateList() {
     if (filtersAreEmpty()) {
@@ -115,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const li = document.createElement('li');
         li.className = 'character__item';
         li.innerHTML = `
-          <img src="${char.image}" alt="${char.name}" width="50" height="50" style="vertical-align: middle; border-radius: 50%; margin-right: 10px;">
+          <img src="${char.image}" alt="${char.name}" width="50" height="50" 
+               style="vertical-align: middle; border-radius: 50%; margin-right: 10px;">
           <strong>${char.name}</strong> — ${char.status}, ${char.species}, ${char.gender}
         `;
         list.appendChild(li);
@@ -125,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
- 
   nameInput.addEventListener('input', updateList);
   selects.forEach(select => select.addEventListener('change', updateList));
   searchButton.addEventListener('click', e => {
