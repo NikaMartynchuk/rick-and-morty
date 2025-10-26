@@ -4,7 +4,7 @@
   background: #0d171d;
   color: #fff;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 150px 100px;
   border-radius: 0 0 100px 100px;
@@ -66,22 +66,20 @@
 
 .characters-visual {
   position: relative;
-  flex: 1;
 }
 
 .character-image {
       position: absolute;
   width: 504px;
   height: 504px;
-  top: -266px;
-  left: 59px;
+  top: 0;
+  left: 100px;
   border-radius: 100px;
   z-index: 2;
   object-fit: cover;
 }
 
 .character-shadow {
-  position: absolute;
   width: 526px;
   height: 476px;
   top: -243px;
