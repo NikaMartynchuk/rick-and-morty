@@ -1,4 +1,4 @@
-import { getCharacters } from './API.js'; // ← обов’язково ./ з косою рискою
+import { getCharacters } from './API.js'; // обов’язково ./ з косою рискою
 
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
@@ -12,8 +12,8 @@ searchInput.addEventListener('input', async function () {
   }
 
   try {
-    // Виклик функції з API.js
-    const data = await getCharacters({ name: query });
+    // ✅ правильний виклик — передаємо filters другим параметром
+    const data = await getCharacters(1, { name: query });
 
     if (data.results && data.results.length > 0) {
       searchResults.innerHTML = data.results
@@ -42,4 +42,4 @@ searchInput.addEventListener('input', async function () {
         Error loading
       </li>`;
   }
-});
+})
