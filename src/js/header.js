@@ -1,3 +1,5 @@
+import { getCharacters } from './API.js'; // ← обов’язково ./ з косою рискою
+
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 
@@ -10,10 +12,10 @@ searchInput.addEventListener('input', async function () {
   }
 
   try {
-    const response = await fetch(`https://rickandmortyapi.com/api/character/?name=${query}`);
-    const data = await response.json();
+    // Виклик функції з API.js
+    const data = await getCharacters({ name: query });
 
-    if (data.results) {
+    if (data.results && data.results.length > 0) {
       searchResults.innerHTML = data.results
         .map(
           (char) => `
@@ -28,10 +30,16 @@ searchInput.addEventListener('input', async function () {
         )
         .join('');
     } else {
-      searchResults.innerHTML = `<li class="list-group-item text-center text-danger" style="background-color:#0B2447;">No results found</li>`;
+      searchResults.innerHTML = `
+        <li class="list-group-item text-center text-danger" style="background-color:#0B2447;">
+          No results found
+        </li>`;
     }
   } catch (error) {
     console.error('Error fetching data:', error);
-    searchResults.innerHTML = `<li class="list-group-item text-center text-danger" style="background-color:#0B2447;">Error loading</li>`;
+    searchResults.innerHTML = `
+      <li class="list-group-item text-center text-danger" style="background-color:#0B2447;">
+        Error loading
+      </li>`;
   }
 });

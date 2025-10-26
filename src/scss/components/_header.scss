@@ -141,6 +141,9 @@
 .modal-body::-webkit-scrollbar-thumb:hover {
   background: #8bc22e;
 }
+.modal{
+  z-index: 1100;
+}
 
 /* --- Для планшетів --- */
 @media (max-width: 992px) {
