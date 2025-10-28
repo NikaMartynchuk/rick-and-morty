@@ -5,4 +5,3 @@ import './js/animated-element.js';
 import './js/main-characters.js';
 import './js/characters.js';
 import './js/episode-script.js';
-
