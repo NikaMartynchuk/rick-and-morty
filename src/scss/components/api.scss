@@ -1,0 +1,53 @@
+.api {
+    align-items: center;
+    ::placeholder {
+        color: #111111;
+        font-family: Montserrat;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0%;
+    }
+
+
+    background-color: white;
+    display: flex;
+
+    &--ul {
+        display: flex;
+        
+
+        &__text {
+            font-family: Montserrat;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0%;
+            color: #111111;
+        }
+    }
+
+    &--form {
+        &__label {
+            display: block;
+            color: #111111;
+            font-family: Montserrat;
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0%;
+        }
+
+        &__input {
+            background-color: #DAF836;
+            border-radius: 15px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            padding-left: 16px;
+
+        }
+    }
+}
