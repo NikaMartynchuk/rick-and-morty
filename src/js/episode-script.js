@@ -1,4 +1,4 @@
-import { getEpisodes, getEpisodeById, getCharacterById } from './api.js';
+import { getEpisodes, getEpisodeById, getCharacterById } from './API.js';
 
 const episodesContainer = document.getElementById("episodes");
 const loadMoreBtn = document.getElementById("loadMore");
@@ -13,7 +13,6 @@ let currentPage = 1;
 let allPages = 1;
 let filters = {};
 
-// --- Utility: debounce ---
 function debounce(fn, wait = 300) {
   let t;
   return (...args) => {
@@ -22,7 +21,6 @@ function debounce(fn, wait = 300) {
   };
 }
 
-// --- Render card ---
 function createEpisodeCard(episode) {
   const div = document.createElement("div");
   div.className = "episode-card";
@@ -39,18 +37,14 @@ function createEpisodeCard(episode) {
   episodesContainer.appendChild(div);
 }
 
-// --- Load episodes with current filters & page ---
 async function loadEpisodes() {
-  // Забезпечимо видимість preloader / приховування помилок
   loadMoreBtn.style.display = "none";
 
   try {
     const data = await getEpisodes(currentPage, filters);
 
-    // Якщо перша сторінка — очистимо контейнер перед рендером
     if (currentPage === 1) episodesContainer.innerHTML = "";
 
-    // Якщо нема результатів — показуємо noResults
     if (!data || !data.results || data.results.length === 0) {
       noResults.classList.remove("hidden");
       episodesContainer.classList.add("hidden");
@@ -59,35 +53,28 @@ async function loadEpisodes() {
       return;
     }
 
-    // Є результати — відобразимо їх
     noResults.classList.add("hidden");
     episodesContainer.classList.remove("hidden");
 
-    // Інформація по кількості сторінок (з захистом)
     if (data.info && data.info.pages) {
       allPages = data.info.pages;
     } else if (data.info && data.info.count) {
-      // fallback якщо pages немає
       allPages = Math.ceil(data.info.count / 20) || 1;
     } else {
       allPages = 1;
     }
 
-    // Рендер карток
     data.results.forEach(createEpisodeCard);
 
-    // Показати / сховати кнопку Load more
     loadMoreBtn.style.display = currentPage >= allPages ? "none" : "block";
   } catch (err) {
     console.error("Error loading episodes:", err);
-    // У випадку помилки також показуємо noResults (щоб користувачу було зрозуміло)
     noResults.classList.remove("hidden");
     episodesContainer.classList.add("hidden");
     loadMoreBtn.style.display = "none";
   }
 }
 
-// --- Modal (без змін від твоєї останньої версії, вірно так) ---
 async function openModal(id) {
   modal.classList.add("show");
   modalBody.innerHTML = `<p class="loading">Loading...</p>`;
@@ -128,8 +115,6 @@ function closeModalWindow() {
   modal.classList.remove("show");
 }
 
-// --- Events ---
-// Load more button
 loadMoreBtn.addEventListener("click", () => {
   if (currentPage < allPages) {
     currentPage++;
@@ -137,7 +122,6 @@ loadMoreBtn.addEventListener("click", () => {
   }
 });
 
-// Debounced search: скидаємо сторінку, очищаємо і робимо запит
 const debouncedSearch = debounce(() => {
   currentPage = 1;
   loadEpisodes();
@@ -145,15 +129,11 @@ const debouncedSearch = debounce(() => {
 
 nameInput.addEventListener("input", (e) => {
   filters.name = e.target.value.trim();
-  // Якщо пустий рядок — видаляємо поле з фільтрів
   if (!filters.name) delete filters.name;
-  // Очищаємо UI і запускаємо debounced запит
-  // (чистка контейнера дає відчуття миттєвого реагування)
   episodesContainer.innerHTML = "";
   debouncedSearch();
 });
 
-// Season select: миттєво виконуємо (не дебаунсим)
 seasonSelect.addEventListener("change", (e) => {
   const val = e.target.value;
   if (val) filters.episode = val;
@@ -164,11 +144,9 @@ seasonSelect.addEventListener("change", (e) => {
   loadEpisodes();
 });
 
-// Modal close handlers
 closeModal.addEventListener("click", closeModalWindow);
 modal.addEventListener("click", (e) => {
   if (e.target === modal) closeModalWindow();
 });
 
-// Початкове завантаження
 loadEpisodes();
