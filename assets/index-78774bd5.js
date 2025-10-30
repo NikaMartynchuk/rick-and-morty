@@ -50,4 +50,4 @@ import"./vendor-6837a909.js";(function(){const t=document.createElement("link").
         </div>
       </div>
     `}catch(t){console.error("Error opening modal:",t),M.innerHTML="<p>Error loading episode details.</p>"}}function j(){E.classList.remove("show")}y.addEventListener("click",()=>{u<f&&(u++,$())});const K=F(()=>{u=1,$()},350);q.addEventListener("input",e=>{g.name=e.target.value.trim(),g.name||delete g.name,m.innerHTML="",K()});D.addEventListener("change",e=>{const t=e.target.value;t?g.episode=t:delete g.episode,u=1,m.innerHTML="",$()});W.addEventListener("click",j);E.addEventListener("click",e=>{e.target===E&&j()});$();
-//# sourceMappingURL=index-9be3af4d.js.map
+//# sourceMappingURL=index-78774bd5.js.map
