@@ -1,3 +1,4 @@
+import { getCharacters } from "./API";  
 const characterList = document.getElementById('character-list');
 const loadMoreBtn = document.querySelector('.load-more');
 
