@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  background: #FAFAFA; /* світлий фон */
+  color: #000;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100vh;
+}
+
+/* Секція */
+.divider-section {
+  background: #f7f8fa;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  padding: 30px 0;
+  overflow: hidden;
+}
+
+/* Контейнер */
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap; /* все в один ряд */
+  gap: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.divider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Чіпи */
+.chip {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15px;
+  display: inline-block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transform: rotate(var(--tilt));
+  animation: roll 6s linear infinite;
+  transform-origin: center center;
+    animation: roll 5s linear infinite;
+  transform-origin: center;
+  transform-style: preserve-3d; /* 👈 для об’єму */
+  perspective: 600px; /* 👈 для реалістичного котіння */
+}
+
+/* Кольори */
+.chip.light {
+  background: #ccff00;
+  color: #000;
+}
+
+.chip.dark {
+  background: #1c1c1c;
+  color: #ccff00;
+}
+
+/* 🌀 Анімація "котіння" з реальним 3D ефектом */
+@keyframes roll {
+  0% {
+    transform: rotate(var(--tilt)) rotateY(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(var(--tilt)) rotateY(90deg) translateY(-2px);
+  }
+  50% {
+    transform: rotate(var(--tilt)) rotateY(180deg) translateY(0);
+  }
+  75% {
+    transform: rotate(var(--tilt)) rotateY(270deg) translateY(2px);
+  }
+  100% {
+    transform: rotate(var(--tilt)) rotateY(360deg) translateY(0);
+  }
+}

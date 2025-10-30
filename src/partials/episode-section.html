@@ -1,18 +1,28 @@
-<div class="controls">
-  <label>Season:</label>
-  <select id="seasonSelect"></select>
-
-  <label>Episode:</label>
-  <select id="episodeSelect"></select>
+  <div class="container filter-bar">
+    <input type="text" id="name" placeholder="Enter the name" class="input-field">
+    <select id="season" class="select-field">
+      <option value="">All seasons</option>
+      <option value="S01">Season 1</option>
+      <option value="S02">Season 2</option>
+      <option value="S03">Season 3</option>
+      <option value="S04">Season 4</option>
+      <option value="S05">Season 5</option>
+    </select>
 </div>
 
-<div id="episodesContainer" class="episodes-grid"></div>
+  <main>
+    <section id="episodes" class="episodes-grid"></section>
+    <div id="noResults" class="hidden">
+      <img src="kisspng-portal-morty-smith-rick-sanchez-t-shirt-hoodie-portal-5ac4b0cbe2bbd5 2.png" alt="No results">
+      <p>Oops! Try looking for something else...</p>
+    </div>
+    <button id="loadMore">Load more</button>
+  </main>
 
-<button id="loadMore" class="load-btn">Load more</button>
-
-<div id="episodeModal" class="modal">
-  <div class="modal-content" id="modalContent"></div>
-  <span id="modalClose" class="close">&times;</span>
-</div>
-
-
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="close-btn">✕</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>

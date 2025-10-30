@@ -1,13 +1,9 @@
-@media screen and (min-width: 255px) and (max-width: 375px) {
+@media screen and (min-width: 255px) and (max-width: 687px) {
 
     .footer {
         background-color: #0D171D;
 
-        &--image{
-            position: absolute;
-            top: 1240px;
-            left: 35px;
-        }
+        
         .container {
             display: flex;
             align-items: baseline;
@@ -83,7 +79,7 @@
 
 }
 
-@media screen and (min-width: 678px) and (max-width: 768px) {
+@media screen and (min-width: 678px) and (max-width: 1339px) {
 
     .container {
         display: flex;
@@ -95,11 +91,7 @@
     .footer {
         background-color: #0D171D;
 
-        &--image{
-            position: absolute;
-            top: 1350px;
-            left: 135px;
-        }
+    
 
         &--div {
             display: flex;
@@ -200,27 +192,25 @@
     }
 
     .footer {
-         &--image{
-          position: absolute;
-            top: 1435px;
-            left: 120px;
-        }
+
+        
+
         background-color: #0D171D;
 
         &--image{
             position: absolute;
+            margin-left: 10px;
+            margin-top: 75px;
         }
 
         &--div {
             display: flex;
             margin-left: 441px;
-            margin-top: 121px;
 
         }
 
         &--list {
 
-            margin-top: 140px;
 
 
             &__morty {
@@ -235,6 +225,7 @@
                 
                 margin-left: 60px;
                 rotate: 32deg;
+                margin-top: 90px;
 
 
             }
@@ -287,16 +278,16 @@
         }
 
         &--text {
-            position: absolute;
+            
             font-weight: 400;
             font-family: Montserrat;
             font-style: Regular;
             font-size: 12px;
             line-height: 14px;
             color: #FAFAFA66;
+            padding-left: 630px;
             margin-top: 128px;
-            margin-left: 639px;
-
+            margin-bottom: 16px;
         }
 
     }

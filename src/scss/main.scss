@@ -5,7 +5,6 @@
 
 
 @import "./components/characters.scss";
-@import "./main-episode.scss";
 @import "./components/hero";
 @import "./components/hero-two";
 
@@ -14,7 +13,10 @@
 @import "./utils/mixins";
 @import "./base/common";
 @import "./components/buttons";
+@import "./components/main-episode";
 
 @import "./components/slider";
 @import "./components/footer";
 @import "./components/header";
+@import "./components/animated-element";
+@import "./components/main-character";
