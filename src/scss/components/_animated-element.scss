@@ -14,17 +14,19 @@ body {
   background: #f7f8fa;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
-  padding: 30px 0;
+
   overflow: hidden;
 }
 
 /* Контейнер */
 .divider {
+    padding: 46px 0;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: nowrap; /* все в один ряд */
-  gap: 14px;
+  gap: 4px;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -33,7 +35,7 @@ body {
   display: none;
 }
 
-/* Чіпи */
+/* 🎨 Чіпи */
 .chip {
   padding: 8px 18px;
   border-radius: 999px;
@@ -42,12 +44,19 @@ body {
   display: inline-block;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   transform: rotate(var(--tilt));
-  animation: roll 6s linear infinite;
-  transform-origin: center center;
-    animation: roll 5s linear infinite;
   transform-origin: center;
-  transform-style: preserve-3d; /* 👈 для об’єму */
-  perspective: 600px; /* 👈 для реалістичного котіння */
+  transform-style: preserve-3d;
+  perspective: 600px;
+
+  /* 🕐 Анімації котіння + обертання
+     ↓ ТУТ можна змінювати швидкість (час у секундах)
+     Наприклад:
+       roll 4.8s → пришвидшення
+       roll 6s → уповільнення
+  */
+  animation: 
+    roll 4.8s linear infinite,      /* було 5s → тепер швидше на 0.2с */
+    rotate-center 4.8s linear infinite; /* синхронно обертається */
 }
 
 /* Кольори */
@@ -61,7 +70,7 @@ body {
   color: #ccff00;
 }
 
-/* 🌀 Анімація "котіння" з реальним 3D ефектом */
+/* 🌀 Анімація котіння (3D) */
 @keyframes roll {
   0% {
     transform: rotate(var(--tilt)) rotateY(0deg) translateY(0);
@@ -77,5 +86,28 @@ body {
   }
   100% {
     transform: rotate(var(--tilt)) rotateY(360deg) translateY(0);
+  }
+}
+
+/* ✨ Анімація обертання навколо центру */
+@-webkit-keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-center {
+  0% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
