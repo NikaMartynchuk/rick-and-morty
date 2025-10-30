@@ -1,39 +1,41 @@
-import { getEpisodes, getEpisodeById, getCharacterById } from './API.js';
+import { getEpisodes, getEpisodeById, getCharacterById } from "./API.js";
 
 const episodesContainer = document.getElementById("episodes");
 const loadMoreBtn = document.getElementById("loadMore");
 const nameInput = document.getElementById("name");
 const seasonSelect = document.getElementById("season");
-const modal = document.getElementById("modal");
-const modalBody = document.getElementById("modalBody");
-const closeModal = document.getElementById("closeModal");
+
+const popup = document.getElementById("popup");
+const popupContent = document.getElementById("popupContent");
+const closePopup = document.getElementById("closePopup");
+
 const noResults = document.getElementById("noResults");
 
 let currentPage = 1;
 let allPages = 1;
 let filters = {};
 
-function debounce(fn, wait = 300) {
+function debounce(fn, delay = 300) {
   let t;
   return (...args) => {
     clearTimeout(t);
-    t = setTimeout(() => fn.apply(this, args), wait);
+    t = setTimeout(() => fn(...args), delay);
   };
 }
 
-function createEpisodeCard(episode) {
+function createEpisodeCard(ep) {
   const div = document.createElement("div");
   div.className = "episode-card";
   div.innerHTML = `
     <div class="episode-bg">
       <div class="overlay"></div>
       <div class="episode-info">
-        <h3>${episode.name}</h3>
-        <p>${new Date(episode.air_date).toDateString()}</p>
+        <h3>${ep.name}</h3>
+        <p>${new Date(ep.air_date).toDateString()}</p>
       </div>
     </div>
   `;
-  div.addEventListener("click", () => openModal(episode.id));
+  div.addEventListener("click", () => openPopup(ep.id));
   episodesContainer.appendChild(div);
 }
 
@@ -45,108 +47,103 @@ async function loadEpisodes() {
 
     if (currentPage === 1) episodesContainer.innerHTML = "";
 
-    if (!data || !data.results || data.results.length === 0) {
+    if (!data || !data.results?.length) {
       noResults.classList.remove("hidden");
       episodesContainer.classList.add("hidden");
-      loadMoreBtn.style.display = "none";
-      allPages = 1;
       return;
     }
 
     noResults.classList.add("hidden");
     episodesContainer.classList.remove("hidden");
 
-    if (data.info && data.info.pages) {
-      allPages = data.info.pages;
-    } else if (data.info && data.info.count) {
-      allPages = Math.ceil(data.info.count / 20) || 1;
-    } else {
-      allPages = 1;
-    }
-
+    allPages = data.info.pages;
     data.results.forEach(createEpisodeCard);
 
-    loadMoreBtn.style.display = currentPage >= allPages ? "none" : "block";
+    if (currentPage < allPages) loadMoreBtn.style.display = "block";
+
   } catch (err) {
     console.error("Error loading episodes:", err);
-    noResults.classList.remove("hidden");
-    episodesContainer.classList.add("hidden");
-    loadMoreBtn.style.display = "none";
   }
 }
 
-async function openModal(id) {
-  modal.classList.add("show");
-  modalBody.innerHTML = `<p class="loading">Loading...</p>`;
+/* ✅ Open Modal */
+async function openPopup(id) {
+  popup.classList.remove("hidden");
+  popup.classList.add("visible");
+
+  popupContent.innerHTML = "<p>Loading...</p>";
 
   try {
-    const episode = await getEpisodeById(id);
-
-    const majorCharacters = episode.characters.slice(0, 4);
-    const characters = await Promise.all(
-      majorCharacters.map(async (url) => {
-        const charId = url.split("/").pop();
-        return await getCharacterById(charId);
+    const ep = await getEpisodeById(id);
+    const chars = await Promise.all(
+      ep.characters.slice(0, 4).map(async (c) => {
+        return await getCharacterById(c.split("/").pop());
       })
     );
 
-    modalBody.innerHTML = `
-      <div class="modal-inner-border">
-        <h2>${episode.name}</h2>
-        <p class="date">${new Date(episode.air_date).toDateString()}</p>
+    popupContent.innerHTML = `
+      <div class="popup-box-border">
+        <h2>${ep.name}</h2>
+        <p class="date">${new Date(ep.air_date).toDateString()}</p>
+
         <h3 class="sub-title">Major Characters</h3>
-        <div class="characters">
-          ${characters.map(ch => `
-            <div class="character-row">
-              <img src="${ch.image}" alt="${ch.name}">
-              <p>${ch.name}</p>
-            </div>
-          `).join('')}
+<div class="popup-characters-list">
+          ${chars
+            .map(
+              (ch) => `
+              <div class="character-row">
+                <img src="${ch.image}" alt="${ch.name}">
+                <p>${ch.name}</p>
+              </div>
+            `
+            )
+            .join("")}
         </div>
       </div>
     `;
   } catch (err) {
-    console.error("Error opening modal:", err);
-    modalBody.innerHTML = `<p>Error loading episode details.</p>`;
+    popupContent.innerHTML = "<p>Error loading episode.</p>";
   }
 }
 
-function closeModalWindow() {
-  modal.classList.remove("show");
+/* ✅ Close Modal */
+function closePopupWindow() {
+  popup.classList.remove("visible");
+  popup.classList.add("hidden");
 }
 
+closePopup.addEventListener("click", closePopupWindow);
+
+popup.addEventListener("click", (e) => {
+  if (e.target === popup) closePopupWindow();
+});
+
+/* Load More */
 loadMoreBtn.addEventListener("click", () => {
-  if (currentPage < allPages) {
-    currentPage++;
-    loadEpisodes();
-  }
-});
-
-const debouncedSearch = debounce(() => {
-  currentPage = 1;
+  currentPage++;
   loadEpisodes();
-}, 350);
-
-nameInput.addEventListener("input", (e) => {
-  filters.name = e.target.value.trim();
-  if (!filters.name) delete filters.name;
-  episodesContainer.innerHTML = "";
-  debouncedSearch();
 });
 
-seasonSelect.addEventListener("change", (e) => {
-  const val = e.target.value;
-  if (val) filters.episode = val;
+/* Search */
+nameInput.addEventListener(
+  "input",
+  debounce(() => {
+    filters.name = nameInput.value.trim();
+    if (!filters.name) delete filters.name;
+    currentPage = 1;
+    loadEpisodes();
+  }, 350)
+);
+
+/* Season Filter */
+seasonSelect.addEventListener("change", () => {
+  const v = seasonSelect.value;
+  if (v) filters.episode = v;
   else delete filters.episode;
 
   currentPage = 1;
-  episodesContainer.innerHTML = "";
   loadEpisodes();
 });
 
-closeModal.addEventListener("click", closeModalWindow);
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) closeModalWindow();
-});
-
+/* ✅ Load first episodes */
 loadEpisodes();

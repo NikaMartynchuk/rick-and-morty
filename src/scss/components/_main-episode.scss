@@ -3,13 +3,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* body {
-  background-color: #0b0c10;
-  color: white;
-  margin: 0;
-  padding: 0;
-} */
-
+/* ===== Filters ===== */
 .filter-bar {
   display: flex;
   justify-content: center;
@@ -17,31 +11,23 @@
   padding: 30px;
 }
 
-.input-field{
-    background-color:  rgba(161, 215, 55, 1) !important;
+.input-field {
+  background-color: rgba(161, 215, 55, 1) !important;
 }
 
 .input-field, .select-field {
-    font-family: 'Montserrat';
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    padding: 16px 24px;
-    width: 233px;
-    height: 50px;
-    border-radius: 100px;
-    border: 2px solid #000000;
-    background: transparent;
-    /* color: white; */
-    outline: none;
+  font-size: 14px;
+  padding: 16px 24px;
+  width: 233px;
+  height: 50px;
+  border-radius: 100px;
+  border: 2px solid #000;
+  background: transparent;
+  outline: none;
 }
 
 .input-field::placeholder {
-  color: #000000;
-}
-
-.select-field option {
-  color: black;
+  color: #000;
 }
 
 .episodes-grid {
@@ -51,14 +37,13 @@
   padding: 40px;
 }
 
+/* ===== Episode Card ===== */
 .episode-card {
-border: 2px solid rgba(161, 215, 55, 1);
-;
-  position: relative;
+  border: 2px solid rgba(161, 215, 55, 1);
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: 0.3s;
 }
 
 .episode-card:hover {
@@ -66,17 +51,17 @@ border: 2px solid rgba(161, 215, 55, 1);
 }
 
 .episode-bg {
-  background-size: cover;
-  background-position: center;
   height: 200px;
+  background: black;
   position: relative;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.909);
-  background-image: url(image\ 23.png);
+  background: rgba(0,0,0,0.9);
+  background-image: url(./beth.png);
+  background-size: cover;
 }
 
 .episode-info {
@@ -99,40 +84,20 @@ border: 2px solid rgba(161, 215, 55, 1);
   color: #ccc;
 }
 
+/* ===== Buttons ===== */
 #loadMore {
   display: block;
   margin: 40px auto;
   padding: 12px 28px;
   border-radius: 50px;
   border: none;
-  background: rgba(161, 215, 55, 1);;
-  color: rgb(0, 0, 0);
+  background: rgba(161, 215, 55, 1);
   cursor: pointer;
-  transition: all 0.3s;
   font-weight: 800;
 }
 
-#loadMore:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-#noResults {
-  text-align: center;
-  margin-top: 100px;
-}
-
-#noResults p {
-  margin-top: 15px;
-  color: #bbb;
-  font-size: 18px;
-}
-
-.hidden {
-  display: none;
-}
-
-/* ===== Modal ===== */
-.modal {
+/* ===== Popup Window ===== */
+.popup-window {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
@@ -141,69 +106,65 @@ border: 2px solid rgba(161, 215, 55, 1);
   align-items: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: 0.3s ease;
   z-index: 9999;
 }
 
-.modal.show {
+.popup-window.visible {
   opacity: 1;
   pointer-events: auto;
 }
 
-.modal-content {
+.popup-box {
   background: #1a1c20;
   padding: 30px;
   border-radius: 16px;
-  max-width: 700px;
   width: 90%;
+  max-width: 700px;
   position: relative;
   animation: fadeIn 0.4s ease;
-  z-index: 10000;
 }
 
-.modal-inner-border {
+.popup-box-border {
   border: 2px solid rgba(161, 215, 55, 1);
   border-radius: 12px;
   padding: 20px;
 }
 
-.close-btn {
+.popup-close-btn {
   position: absolute;
   top: 12px;
   right: 12px;
   background: transparent;
   border: none;
-  color: rgba(161, 215, 55, 1);
   font-size: 18px;
+  color: rgba(161, 215, 55, 1);
   cursor: pointer;
 }
 
-.modal-content h2 {
-    color: rgba(161, 215, 55, 1);
+.popup-box h2 {
+  color: rgba(161, 215, 55, 1);
   margin-top: 0;
-  font-weight: 600;
-  font-size: 22px;
 }
 
-.modal-content .date {
+.date {
   color: #aaa;
   font-size: 14px;
-  margin-bottom: 10px;
 }
 
-.modal-content .sub-title {
+.sub-title {
   margin-top: 20px;
-  margin-bottom: 10px;
-  font-weight: 500;
   font-size: 16px;
   color: #eee;
 }
 
-.characters {
+.popup-characters-list {
   display: flex;
   gap: 14px;
   margin-top: 20px;
+  color: white;
 }
+
 
 .character-row {
   display: flex;
@@ -218,13 +179,11 @@ border: 2px solid rgba(161, 215, 55, 1);
   object-fit: cover;
 }
 
-.character-row p {
-  font-size: 16px;
-  color: white;
-  margin: 0;
+.hidden {
+  display: none;
 }
 
 @keyframes fadeIn {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
