@@ -5,23 +5,23 @@
     background: #0f171e;
   }
 
-  .header1 {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    transition: background-color 0.4s ease;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-  } 
+ .header1 {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+  background: #0D171D; /* 🔹 Спочатку чорний */
+  backdrop-filter: none;
+  z-index: 1000;
+}
 
-  .header1.scrolled {
-    background: rgba(0, 0, 0, 0.9);
-  }
-
+.header1.scrolled {
+  background: rgba(0, 0, 0, 0.3); /* 🔹 Після прокрутки — прозорий */
+  backdrop-filter: blur(10px);
+}
   /* --------- ЛІВА ЧАСТИНА (кнопки Characters / Episodes) --------- */
   .header1-nav {
     display: flex;
