@@ -1,4 +1,4 @@
-import { getCharacters } from "./api.js";  
+import { getCharacters } from "./API.js";  
 
 const characterList = document.getElementById('character-list');
 const loadMoreBtn = document.querySelector('.load-more');
