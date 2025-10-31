@@ -7,9 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   
   <title></title>
-  <script type="module" crossorigin src="./assets/animated-element-cacad985.js"></script>
-  <script type="module" crossorigin src="./assets/vendor-6837a909.js"></script>
-  <link rel="stylesheet" href="./assets/animated-element-6ec42558.css">
+  <script type="module" crossorigin src="./commonHelpers3.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/animated-element-eecdf2be.js">
+  <link rel="modulepreload" crossorigin href="./assets/vendor-6837a909.js">
+  <link rel="stylesheet" href="./assets/animated-element-e61323ef.css">
 </head>
 
 <body>
@@ -114,7 +115,7 @@
   </div>
 </section>
  
-      <section class="rm-section" aria-label="Rick slider">
+      <section class="rm-section" id="exploreSection" aria-label="Rick slider">
   <h1 class="rm-title">Ready to <span>explore</span> the crazy world of Rick and Morty?</h1>
 
   <div class="rm-viewport" aria-hidden="true">
@@ -136,6 +137,12 @@
   <a class="rm-btn" href="episode.html">Episodes</a>
 </section>
 <script src="../js/slider.js"></script>
+ 
+            <button id="scrollBtn" aria-label="Scroll Button">
+  <svg id="arrowIcon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
  
   <main></main>
   <footer class="footer">
