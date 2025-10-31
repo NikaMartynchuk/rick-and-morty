@@ -11,6 +11,7 @@
 
         &-one{
             background-color: white;
+            display: flex;
         }
 
         
@@ -84,6 +85,16 @@
                 color: #FAFAFA;
 
             }
+            &__linked {
+                font-weight: 400;
+                font-family: Montserrat;
+                font-style: Regular;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 1%;
+                color: black;
+                margin-bottom: 16px;
+            }
             
         }
 
@@ -98,6 +109,22 @@
             padding-left: 84px;
             margin-bottom: 16px;
         }
+
+
+         &--textet {
+            
+            font-weight: 400;
+            font-family: Montserrat;
+            font-style: Regular;
+            font-size: 12px;
+            line-height: 14px;
+            color: #11111166;
+            padding-left: 84px;
+            margin-top: 128px;
+            margin-bottom: 16px;
+        }
+        
+    
 
     }
 
@@ -170,9 +197,10 @@
                 font-size: 14px;
                 line-height: 18px;
                 letter-spacing: 1%;
-                color: #FAFAFA;
+                color: white;
                 margin-bottom: 16px;
             }
+
         }
 
         &--ul {
@@ -183,6 +211,17 @@
             &__link {
 
                 margin-right: 24px;
+            }
+
+            &__linked {
+                font-weight: 400;
+                font-family: Montserrat;
+                font-style: Regular;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 1%;
+                color: black;
+                margin-bottom: 16px;
             }
 
             &__image {
@@ -203,6 +242,19 @@
             font-size: 12px;
             line-height: 14px;
             color: #FAFAFA66;
+            padding-left: 239px;
+            margin-top: 128px;
+            margin-bottom: 16px;
+        }
+
+         &--textet {
+            
+            font-weight: 400;
+            font-family: Montserrat;
+            font-style: Regular;
+            font-size: 12px;
+            line-height: 14px;
+            color: #11111166;
             padding-left: 239px;
             margin-top: 128px;
             margin-bottom: 16px;
@@ -276,6 +328,10 @@
         }
 
         &--lists {
+
+            &__li{
+                margin-bottom: 16px;
+            }
             &__link {
                 font-weight: 400;
                 font-family: Montserrat;
@@ -284,6 +340,16 @@
                 line-height: 18px;
                 letter-spacing: 1%;
                 color: #FAFAFA;
+                margin-bottom: 16px;
+            }
+            &__linked {
+                font-weight: 400;
+                font-family: Montserrat;
+                font-style: Regular;
+                font-size: 14px;
+                line-height: 18px;
+                letter-spacing: 1%;
+                color: black;
                 margin-bottom: 16px;
             }
         }
@@ -316,6 +382,19 @@
             font-size: 12px;
             line-height: 14px;
             color: #FAFAFA66;
+            padding-left: 630px;
+            margin-top: 128px;
+            margin-bottom: 16px;
+        }
+
+        &--textet {
+            
+            font-weight: 400;
+            font-family: Montserrat;
+            font-style: Regular;
+            font-size: 12px;
+            line-height: 14px;
+            color: #11111166;
             padding-left: 630px;
             margin-top: 128px;
             margin-bottom: 16px;
