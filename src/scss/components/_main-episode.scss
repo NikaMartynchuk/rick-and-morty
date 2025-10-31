@@ -84,6 +84,24 @@
   color: #ccc;
 }
 
+#noResults {
+    padding-bottom: 140px;
+  justify-content: center;
+}
+
+/* коли показуємо */
+#noResults.show {
+  display: grid;
+
+}
+
+
+
+#noResults p{
+  margin: 0 auto;
+}
+
+
 /* ===== Buttons ===== */
 #loadMore {
   display: block;
