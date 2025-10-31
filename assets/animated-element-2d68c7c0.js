@@ -13,4 +13,4 @@
       <li class="list-group-item text-center text-danger" style="background-color:#0B2447;">
         Error loading
       </li>`}});window.addEventListener("scroll",()=>{const n=document.querySelector(".header1");window.scrollY>50?n.classList.add("scrolled"):n.classList.remove("scrolled")});const f=["Animated","the adventures","Justin Roiland","superpower","creative","amazing","Sitcom","comics","follows","characters","whoa","Rick and Morty"],m=document.getElementById("divider");f.forEach((n,t)=>{const o=document.createElement("span");o.textContent=n,o.className=`chip ${t%2===0?"light":"dark"}`;const e=(Math.random()>.6?180:0)+(Math.random()*30-15);o.style.setProperty("--angle",`${e}deg`),o.style.animationDelay=`${Math.random()*2}s`,m.appendChild(o)});export{h as a,y as b,g as c,p as g};
-//# sourceMappingURL=animated-element-eecdf2be.js.map
+//# sourceMappingURL=animated-element-2d68c7c0.js.map
