@@ -48,13 +48,16 @@ async function loadEpisodes() {
     if (currentPage === 1) episodesContainer.innerHTML = "";
 
     if (!data || !data.results?.length) {
-      noResults.classList.remove("hidden");
-      episodesContainer.classList.add("hidden");
+episodesContainer.classList.add("hidden");
+noResults.classList.remove("hidden");
+noResults.classList.add("show"); // ✅ новий клас
       return;
     }
 
-    noResults.classList.add("hidden");
-    episodesContainer.classList.remove("hidden");
+ noResults.classList.remove("show");
+noResults.classList.add("hidden");
+episodesContainer.classList.remove("hidden");
+
 
     allPages = data.info.pages;
     data.results.forEach(createEpisodeCard);
