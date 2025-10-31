@@ -3,6 +3,16 @@
     .footer {
         background-color: #0D171D;
 
+        &--image{
+            position: absolute;
+            margin-left: 20px;
+            margin-top: 77px;
+        }
+
+        &-one{
+            background-color: white;
+        }
+
         
         .container {
             display: flex;
@@ -72,7 +82,21 @@
                 line-height: 18px;
                 letter-spacing: 1%;
                 color: #FAFAFA;
+
             }
+            
+        }
+
+         &--text {
+            
+            font-weight: 400;
+            font-family: Montserrat;
+            font-style: Regular;
+            font-size: 12px;
+            line-height: 14px;
+            color: #FAFAFA66;
+            padding-left: 84px;
+            margin-bottom: 16px;
         }
 
     }
@@ -92,6 +116,11 @@
         background-color: #0D171D;
 
     
+         &--image{
+            position: absolute;
+            margin-left: 10px;
+            margin-top: 75px;
+        }
 
         &--div {
             display: flex;
@@ -167,17 +196,19 @@
         }
 
         &--text {
-            position: absolute;
+            
             font-weight: 400;
             font-family: Montserrat;
             font-style: Regular;
             font-size: 12px;
             line-height: 14px;
             color: #FAFAFA66;
+            padding-left: 239px;
             margin-top: 128px;
-            margin-left: 239px;
-
+            margin-bottom: 16px;
         }
+
+
 
     }
 
