@@ -2,6 +2,7 @@ import * as bootstrap from '../node_modules/bootstrap/dist/js/bootstrap.bundle.m
 import './js/header.js';
 //import './js/slider.js';
 import './js/animated-element.js';
+import './js/main-characters.js';
 import './js/fixed-button.js';
 
  
