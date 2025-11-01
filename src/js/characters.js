@@ -3,7 +3,7 @@ import { getCharacters } from "./API.js";
 const characterList = document.getElementById('character-list');
 const loadMoreBtn = document.querySelector('.load-more');
 const nameInput = document.querySelector('.character-input');
-const selects = document.querySelectorAll('.character select');
+const selects = document.querySelectorAll('.character-filtration select');
 
 let currentPage = 1;
 let isLoading = false;
