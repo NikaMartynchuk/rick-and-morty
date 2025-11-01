@@ -7,10 +7,10 @@
     
     <title>Characters</title>
     <script type="module" crossorigin src="./commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/animated-element-6e96432a.js">
+    <link rel="modulepreload" crossorigin href="./assets/animated-element-0284cb7f.js">
     <link rel="modulepreload" crossorigin href="./assets/vendor-6837a909.js">
     <link rel="modulepreload" crossorigin href="./assets/main-characters-25df6756.js">
-    <link rel="stylesheet" href="./assets/animated-element-92981f8c.css">
+    <link rel="stylesheet" href="./assets/animated-element-60670ca8.css">
   </head>
   <body>
 
@@ -147,6 +147,34 @@
   </div>
   </div>
 </section>
+
+<!-- 🔽 🔽 🔽 Ось ТУТ підключається модальне вікно -->
+<!-- Modal Window -->
+<div id="characterModal" class="char-modal hidden">
+  <div class="char-modal-content">
+    <span class="char-close-btn" id="charCloseModal">&times;</span>
+    <div class="char-modal-body">
+      <div class="char-left">
+        <img id="charImage" alt="Character" />
+        <div class="char-info-box">
+          <p><b>Status:</b> <span id="charStatus"></span></p>
+          <p><b>Species:</b> <span id="charSpecies"></span></p>
+          <p><b>Gender:</b> <span id="charGender"></span></p>
+          <p><b>Origin:</b> <span id="charOrigin"></span></p>
+          <p><b>Location:</b> <span id="charLocation"></span></p>
+          <p><b>Type:</b> <span id="charType"></span></p>
+        </div>
+      </div>
+      <div class="char-right">
+        <h2>Episodes</h2>
+        <ul id="episodesList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 🔼 🔼 🔼 Кінець модального вікна -->
+
+
 
     </main>
     <footer class="footer-one">
