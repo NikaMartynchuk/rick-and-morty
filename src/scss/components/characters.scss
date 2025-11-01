@@ -128,3 +128,202 @@ li {
     align-items: center;
     margin-top: 64px;
 }
+
+/* --- Character Modal Styles (виправлено для адаптиву) --- */
+.char-modal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex; /* ✅ центрування по вертикалі/горизонталі */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.char-modal.hidden {
+  display: none;
+}
+
+.char-modal-content {
+  background: #0f171e;
+  padding: 20px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 850px;
+  color: white;
+  position: relative;
+  border: 2px solid #1eff8a;
+  box-shadow: 0 0 20px rgba(30, 255, 138, 0.3);
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.char-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #1eff8a;
+  transition: color 0.3s;
+}
+.char-close-btn:hover {
+  color: #8fffbd;
+}
+
+.char-modal-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.char-left {
+  flex: 1 1 250px;
+  max-width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.char-left img {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 12px;
+  border: 2px solid #1eff8a;
+  object-fit: cover;
+}
+
+.char-info-box {
+  width: 100%;
+  margin-top: 12px;
+  font-size: 14px;
+  border: 1px solid #1eff8a;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+  background: rgba(30, 255, 138, 0.05);
+}
+
+.char-right {
+  flex: 2 1 400px;
+  min-width: 280px;
+}
+
+.char-right h2 {
+  margin-bottom: 12px;
+  font-size: 20px;
+  text-align: center;
+}
+
+#episodesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#episodesList li {
+  border: 1px solid #1eff8a;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  background: rgba(30, 255, 138, 0.05);
+  transition: transform 0.2s;
+}
+#episodesList li:hover {
+  transform: scale(1.02);
+}
+
+/* 📉 Планшети та невеликі ноутбуки (до 1024px) */
+@media (max-width: 1024px) {
+  .char-modal-content {
+    max-width: 90vw;
+    padding: 16px;
+  }
+  .char-left img {
+    max-width: 200px;
+  }
+  .char-info-box {
+    font-size: 13px;
+    padding: 8px;
+  }
+  .char-right h2 {
+    font-size: 18px;
+  }
+  #episodesList li {
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* 📱 Середні екрани (до 768px, напр. 540x720, 600x900) */
+@media (max-width: 768px) {
+  .char-modal {
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .char-modal-content {
+    max-width: 92vw;
+    margin: 60px auto 20px;
+    padding: 14px;
+  }
+  .char-modal-body {
+    flex-direction: column;
+    align-items: center;
+    max-height: none;
+  }
+  .char-left img {
+    max-width: 180px;
+  }
+  .char-info-box {
+    font-size: 12px;
+  }
+  .char-right h2 {
+    font-size: 17px;
+  }
+  #episodesList li {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+/* 📲 Дуже малі екрани (до 480px — напр. 412x914, 344x882) */
+@media (max-width: 480px) {
+  .char-modal {
+    padding: 8px;
+    align-items: flex-start;
+  }
+  .char-modal-content {
+    width: 100%;
+    max-width: 94vw;
+    padding: 12px;
+    border-radius: 10px;
+    margin: 60px auto 0;
+    margin-left: var(--char-left-gap, 0px);
+    transform: scale(0.95); /* ✅ легке зменшення всього вмісту */
+  }
+  .char-left img {
+    max-width: 150px;
+  }
+  .char-info-box {
+    font-size: 11px;
+    padding: 6px;
+  }
+  .char-right h2 {
+    font-size: 16px;
+  }
+  #episodesList li {
+    font-size: 11px;
+    padding: 5px;
+  }
+}
