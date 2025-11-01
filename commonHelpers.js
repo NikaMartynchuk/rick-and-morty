@@ -1,4 +1,4 @@
-import{g as C}from"./assets/animated-element-0284cb7f.js";import"./assets/vendor-6837a909.js";import"./assets/main-characters-25df6756.js";const d=document.getElementById("character-list"),i=document.querySelector(".load-more"),x=document.querySelector(".character-input"),T=document.querySelectorAll(".character-filtration select");let m=1,y=!1,f={};function O(e,n=!1){if(n&&(d.innerHTML=""),!e||e.length===0){d.innerHTML="<li>No characters found.</li>",i.style.display="none";return}const r=e.map(t=>`
+import{g as C}from"./assets/animated-element-0284cb7f.js";import"./assets/vendor-6837a909.js";const d=document.getElementById("character-list"),i=document.querySelector(".load-more"),x=document.querySelector(".character-input"),T=document.querySelectorAll(".character-filtration select");let m=1,y=!1,f={};function O(e,n=!1){if(n&&(d.innerHTML=""),!e||e.length===0){d.innerHTML="<li>No characters found.</li>",i.style.display="none";return}const r=e.map(t=>`
     <li>
       <img class="character__img-list" src="${t.image}" alt="${t.name}">
       <h2 class="character__name">${t.name}</h2>

@@ -1,2 +1,0 @@
-const t=document.getElementById("character-img"),c=document.querySelectorAll(".character-info h3");t.src="";c.forEach(e=>{e.addEventListener("click",()=>{c.forEach(s=>s.classList.remove("active")),e.classList.add("active");const a=e.getAttribute("data-img");t.classList.remove("active"),t.style.opacity=0,t.style.transform="translateY(40px)",setTimeout(()=>{t.src=a,t.classList.add("active")},200)})});
-//# sourceMappingURL=main-characters-25df6756.js.map
